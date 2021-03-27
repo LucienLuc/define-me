@@ -18,8 +18,8 @@ function App() {
 
 
   const handleClick = () => {
-    axios.post('http://localhost:5001/define-me-308905/us-central1/getTerms', 'poo poo ga ga').then(response => {
-      console.log(response)
+    axios.post('http://localhost:5001/define-me-308905/us-central1/ocr', {file: 'testfile.pdf'}).then(response => {
+      console.log(response);
     })
   }
 
