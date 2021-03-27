@@ -1,0 +1,29 @@
+The lipids are a chemically diverse group of hydrocarbons.
+The property they all share is insolubility in water, which is
+due to the presence of many nonpolar covalent bonds. As we
+saw in Chapter 2, nonpolar hydrocarbon molecules are hydrophobic and preferentially aggregate among themselves,
+away from water, which is polar. When these nonpolar molecules are sufficiently close together, weak but additive van
+der Waals forces hold them together. These huge macromolecular aggregations are not polymers in a strict chemical
+sense, since their units (lipid molecules) are not held together
+by covalent bonds, as are, for example, the amino acids in
+proteins. But they can be considered polymers of individual
+lipid units.
+In this section, we will describe the different types of
+lipids. Lipids have a number of roles in living organisms:
+ Fats and oils store energy.
+ Phospholipids play important structural roles in cell
+membranes.
+ The carotenoids help plants capture light energy.
+ Steroids and modified fatty acids play regulatory roles
+as hormones and vitamins.
+ The fat in animal bodies serves as thermal insulation.
+ A lipid coating around nerves acts as electrical insulation.
+ Oil or wax on the surfaces of skin, fur, and feathers
+repels water.
+Fats and oils store energy
+Chemically, fats and oils are triglycerides, also known as simple lipids. Triglycerides that are solid at room temperature
+(20°C) are called fats; those that are liquid at room temperature are called oils. Triglycerides are composed of two types
+of building blocks: fatty acids and glycerol. Glycerol is a small
+molecule with three hydroxyl (—OH) groups (an alcohol). A
+fatty acid is made up of a long nonpolar hydrocarbon chain
+and a polar carboxyl group (—COOH). A triglyceride contains three fatty acid molecules and one molecule of glycerol.

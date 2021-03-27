@@ -1,0 +1,213 @@
+The carboxyl group of a fatty acid can form a covalent bond
+with the hydroxyl group of glycerol, resulting a functional
+group called an ester and water (Figure 3.18).
+The three fatty acids in a triglyceride molecule need not
+all have the same hydrocarbon chain length or structure:
+ In saturated fatty acids, all the bonds between the carbon atoms in the hydrocarbon chain are single bonds—
+there are no double bonds. That is, all the bonds are saturated with hydrogen atoms (Figure 3.19a). These fatty
+acid molecules are relatively rigid and straight, and they
+pack together tightly, like pencils in a box.
+ In unsaturated fatty acids, the hydrocarbon chain contains one or more double bonds. Oleic acid, for example,
+is a monounsaturated fatty acid that has one double bond
+near the middle of the hydrocarbon chain, which causes
+a kink in the molecule (Figure 3.19b). Some fatty acids
+have more than one double bond—are polyunsaturated—
+and have multiple kinks. These kinks prevent the molecules from packing together tightly.
+The kinks in fatty acid molecules are important in determining the fluidity and melting point of a lipid. The triglycerides
+of animal fats tend to have many long-chain saturated fatty
+acids, packed tightly together; these fats are usually solids at
+room temperature and have a high melting point. The
+triglycerides of plants, such as corn oil, tend to have short or
+unsaturated fatty acids. Because of their kinks, these fatty
+acids pack together poorly and have a low melting point, and
+these triglycerides are usually liquids at room temperature.
+Fats and oils are marvelous storehouses for energy. When
+they take in excess food, many animal species deposit fat
+droplets in their cells as a means of storing energy. Some
+plant species, such as olives, avocados, sesame, castor beans,
+and all nuts, have substantial amounts of lipids in their seeds
+O C
+CH2
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH3
+H2C
+O C
+CH2
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH3
+H2C
++
+Glycerol
+(an alcohol)
+3
+Fatty acid
+molecules
+Triglyceride
+O H
+H2C
+O H
+CH2
+O H
+C
+3
+Ester linkage
+O
+H2C C CH2
+O O
+H2O
+The synthesis of an
+ester is a condensation reaction.
+O C
+OH
+CH2
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH3
+H2C
+O C
+OH
+CH2
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH3
+H2C
+O C
+OH
+CH2
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH3
+H2C
+O C
+CH2
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH3
+H2C
+H H
+3.18 Synthesis of a Triglyceride
+In living things, the reaction that forms
+triglycerides is more complex, but the
+end result is as shown here.
+(a)
+O C
+OH
+(b)
+CH2
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+CH2
+H2C
+O 1C
+OH
+CH2
+CH2
+CH2
+CH2
+CH2
+CH2
+CH2
+CH2
+18CH3
+CH2
+CH2
+CH2
+CH2
+12HC
+HC
+9HC
+HC
+CH2
+H2C
+CH2
+H2C
+CH3
+H2C
+All bonds between
+carbon atoms are single
+in a saturated fatty acid
+(carbon chain is straight).
+A double bond between
+two carbons makes an
+unsaturated fatty acid
+(carbon chain has kinks).
+The straight chain allows a molecule to
+pack tightly among other similar
+molecules. Kinks prevent close packing.
+Palmitic acid
+Linoleic acid
+3.19 Saturated and Unsaturated Fatty
+Acids (a) The straight chain of a saturated fatty acid allows the molecule to
+pack tightly among other similar molecules. (b) In unsaturated fatty acids, kinks
+in the chain prevent close packing.
+51
+or fruits that serve as energy reserves for the next generation.
+This energy can be tapped by people who eat these plant oils
+or use them for fuel. Indeed, the famous German engineer
+Rudolf Diesel used peanut oil to power one of his early automobile engines in 1900.

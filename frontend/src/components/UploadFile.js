@@ -50,7 +50,7 @@ class UploadFile extends React.Component{
               <label for="avatar">Select a pdf:</label>
               </div>
                   <input type="file"
-                  id="avatar" name="avatar" 
+                  id="avatar" name="avatar"
                   accept="image/png, image/jpeg, .pdf"
                   onChange={this.handleUpload}
                   src="#">
