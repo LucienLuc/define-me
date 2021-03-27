@@ -6,6 +6,7 @@ import {Button} from 'antd'
 import 'antd/dist/antd.css';
 
 import UploadFile from './components/UploadFile'
+import app_header from './components/header'
 
 function App() {
 
@@ -33,7 +34,9 @@ function App() {
         </a>
       </header> */}
       <Button onClick={handleClick}>Test firebase</Button>
+      <app_header/>
       <UploadFile/>
+      
     </div>
   );
 }
