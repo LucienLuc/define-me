@@ -16,7 +16,6 @@ class UploadFile extends React.Component{
     })
   }
   render() {
-
       let props = {
           name: 'file',
           multiple: true,
