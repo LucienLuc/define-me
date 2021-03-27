@@ -1,20 +1,19 @@
 import React from 'react'
 import axios from 'axios'
 import './UploadFile.css'
+import {app} from '../base'
 
 import {Upload, Button, message} from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 
 class UploadFile extends React.Component{
   handleUpload = (e) => {
-    const dataForm = new FormData()
-    dataForm.append('file', e.target.files[0])
-    axios
-      .post('link', dataForm)
-      .then(res => {
-
-      })
-      .catch(err => console.log(err))
+    const file = e.target.files[0];
+    const storageRef = app.storage().ref()
+    const fileRef = storageRef.child(file.name)
+    fileRef.put(file).then(() => {
+      console.log("Uploaded a file")
+    })
   }
   render() {
 
