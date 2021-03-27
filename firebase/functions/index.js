@@ -14,14 +14,15 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
   });
 });
 
-exports.getTerms = functions.https.onRequest((request, response) => {
-  cors(request, response, (request) => {
+exports.ocr = functions.https.onRequest((request, response) => {
+  cors(request, response, () => {
+
     async function start(req) {
       const client = new vision.ImageAnnotatorClient();
       // Bucket where the file resides
       const bucketName = 'define-me-308905.appspot.com';
       // Path to PDF file within bucket
-      const fileName = req.file;
+      const fileName = req.body.file;
       // The folder to store the results
       const outputPrefix = 'results'
       const gcsSourceUri = `gs://${bucketName}/${fileName}`;
@@ -51,12 +52,32 @@ exports.getTerms = functions.https.onRequest((request, response) => {
       };
 
       const [operation] = await client.asyncBatchAnnotateFiles(request);
+      // console.log(operation);
       const [filesResponse] = await operation.promise();
+      // console.log(filesResponse.responses[0]);
       const destinationUri = filesResponse.responses[0].outputConfig.gcsDestination.uri;
       console.log('Json saved to: ' + destinationUri);
     }
-    start(request.body);
+
+    start(request);
+
     functions.logger.info("Making vision request!", {structuredData: true});
     response.send("Made request to vision!");
+  });
+});
+
+exports.getData= functions.https.onRequest((request, response) => {
+  cors(request, response, () => {
+
+    const admin = require('firebase-admin');
+    admin.storage().bucket().file("yourDirForFile/yourFile.json")
+    .download(function (err, contents) {
+        if (!err) {
+            var jsObject = JSON.parse(contents.toString('utf8'))
+        }
+    }); 
+
+    functions.logger.info("Getting data from ocr", {structuredData: true});
+    response.send("Getting data");
   });
 });
