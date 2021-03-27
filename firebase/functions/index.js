@@ -12,7 +12,7 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
   });
 });
 
-exports.getTerms= functions.https.onRequest((request, response) => {
+exports.getTerms = functions.https.onRequest((request, response) => {
   cors(request, response, () => {
     const client = new vision.ImageAnnotatorClient();
 
@@ -20,3 +20,9 @@ exports.getTerms= functions.https.onRequest((request, response) => {
     response.send("Hello from Firebase!");
   });
 });
+
+// exports.handleUpload = functions.https.onRequest((request, response) => {
+//   cors(request, response, () => {
+//     // code here
+//   });
+// });
