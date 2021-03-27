@@ -9,6 +9,8 @@ import UploadFile from './components/UploadFile'
 import app_header from './components/header'
 import Flashcard from './components/Flashcard'
 
+import {app} from './base'
+
 const BASE_URL = "https://us-central1-define-me-308905.cloudfunctions.net"
 
 // For firebase emulator testing
@@ -20,7 +22,15 @@ function App() {
   const handleClick = () => {
     axios.post('http://localhost:5001/define-me-308905/us-central1/ocr', {file: 'testfile.pdf'}).then(response => {
       console.log(response);
-    })
+    }).then(() => {
+      const storageRef = app.storage().ref()
+      const fileRef = storageRef.child("/results/output-1-to-1.json")
+      fileRef.getDownloadURL().then(url => {
+        axios.get(url).then(response => {
+          console.log(response.data.responses[0].fullTextAnnotation.text)
+        })
+      })
+    }); 
   }
 
   return (

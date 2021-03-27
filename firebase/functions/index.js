@@ -52,8 +52,9 @@ exports.ocr = functions.https.onRequest((request, response) => {
       };
 
       const [operation] = await client.asyncBatchAnnotateFiles(request);
+      // console.log(operation);
       const [filesResponse] = await operation.promise();
-      console.log(filesResponse);
+      // console.log(filesResponse.responses[0]);
       const destinationUri = filesResponse.responses[0].outputConfig.gcsDestination.uri;
       console.log('Json saved to: ' + destinationUri);
     }
@@ -67,7 +68,16 @@ exports.ocr = functions.https.onRequest((request, response) => {
 
 exports.getData= functions.https.onRequest((request, response) => {
   cors(request, response, () => {
-    functions.logger.info("Hello logs!", {structuredData: true});
-    response.send("Hello from Firebase!");
+
+    const admin = require('firebase-admin');
+    admin.storage().bucket().file("yourDirForFile/yourFile.json")
+    .download(function (err, contents) {
+        if (!err) {
+            var jsObject = JSON.parse(contents.toString('utf8'))
+        }
+    }); 
+
+    functions.logger.info("Getting data from ocr", {structuredData: true});
+    response.send("Getting data");
   });
 });
