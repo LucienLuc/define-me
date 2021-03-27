@@ -5,11 +5,19 @@ import {app} from '../base'
 
 import {Upload, Button, message} from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
+import { Redirect } from 'react-router';
 
 const BASE_URL = "https://us-central1-define-me-308905.cloudfunctions.net"
 
 class UploadFile extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {uploading: false};
+}
   handleUpload = (e) => {
+    this.setState({
+      uploading:true
+    })
     const file = e.target.files[0];
     const storageRef = app.storage().ref()
     const fileRef = storageRef.child(file.name)
@@ -25,6 +33,9 @@ class UploadFile extends React.Component{
           //make definitions and terms
         })
     })
+    /*this.setState({
+      uploading:true
+    })*/
   }
   render() {
       let props = {
@@ -43,9 +54,10 @@ class UploadFile extends React.Component{
             }
           },
       };
-
       return (
-              <div className="file-input">
+              <div>
+              <div class="file-input">
+              {this.state.uploading && <div class="progress"></div>}
               <div>
               <label for="avatar">Select a pdf:</label>
               </div>
@@ -55,6 +67,7 @@ class UploadFile extends React.Component{
                   onChange={this.handleUpload}
                   src="#">
                   </input>
+              </div>
               </div>
       )
   }
