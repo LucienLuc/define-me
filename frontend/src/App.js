@@ -7,6 +7,7 @@ import 'antd/dist/antd.css';
 
 import UploadFile from './components/UploadFile'
 import app_header from './components/header'
+import Flashcard from './components/Flashcard'
 
 const BASE_URL = "http://localhost:4000/functions"
 
@@ -38,6 +39,7 @@ function App() {
       </header> */}
       <Button onClick={handleClick}>Test firebase</Button>
       <app_header/>
+      <Flashcard/>
       <UploadFile/>
       
     </div>
