@@ -1,13 +1,19 @@
 import React from 'react'
-
-import {Upload, Button} from 'antd';
+import './UploadFile.css'
 
 class UploadFile extends React.Component{
     render() {
         return (
-            <div>
-                <Button>Hello</Button>
-            </div>
+                <div className="file-input">
+                <div>
+                <label for="avatar">Select a pdf:</label>
+                </div>
+                    <input type="file"
+                    id="avatar" name="avatar" 
+                    accept="image/png, image/jpeg, .pdf"
+                    src="#">
+                    </input>
+                </div>
         )
     }
 }
