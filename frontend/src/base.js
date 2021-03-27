@@ -1,8 +1,9 @@
 import firebase from 'firebase/app'
 import "firebase/storage"
+const GOOGLE_APPLICATION_CREDENTIALS = process.env.REACT_APP_GOOGLE_APPLICATION_CREDENTIALS
 
 const firebaseConfig = {
-    apiKey: "AIzaSyD5_C7BBsLGAykVy0L0W7EMBl_e1eknSRM",
+    apiKey: GOOGLE_APPLICATION_CREDENTIALS,
     authDomain: "define-me-308905.firebaseapp.com",
     projectId: "define-me-308905",
     storageBucket: "define-me-308905.appspot.com",
