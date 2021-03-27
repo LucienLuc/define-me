@@ -16,13 +16,12 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 
 exports.getTerms = functions.https.onRequest((request, response) => {
   cors(request, response, (request) => {
-    async function start() {
-      console.log(request);
+    async function start(req) {
       const client = new vision.ImageAnnotatorClient();
       // Bucket where the file resides
       const bucketName = 'define-me-308905.appspot.com';
       // Path to PDF file within bucket
-      const fileName = 'testfile.pdf';
+      const fileName = req.file;
       // The folder to store the results
       const outputPrefix = 'results'
       const gcsSourceUri = `gs://${bucketName}/${fileName}`;
@@ -56,7 +55,7 @@ exports.getTerms = functions.https.onRequest((request, response) => {
       const destinationUri = filesResponse.responses[0].outputConfig.gcsDestination.uri;
       console.log('Json saved to: ' + destinationUri);
     }
-    start();
+    start(request.body);
     functions.logger.info("Making vision request!", {structuredData: true});
     response.send("Made request to vision!");
   });

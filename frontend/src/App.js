@@ -9,7 +9,10 @@ import UploadFile from './components/UploadFile'
 import app_header from './components/header'
 import Flashcard from './components/Flashcard'
 
-const BASE_URL = "http://localhost:4000/functions"
+const BASE_URL = "https://us-central1-define-me-308905.cloudfunctions.net"
+
+// For firebase emulator testing
+// const BASE_URL = "http://localhost:5001/define-me-308905/us-central1"
 
 function App() {
 
