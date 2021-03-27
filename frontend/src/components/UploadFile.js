@@ -16,7 +16,14 @@ class UploadFile extends React.Component{
     fileRef.put(file).then(() => {
       axios
         .post(BASE_URL + "/ocr", {file: file.name})
-        .then()
+        .then(response => {
+          //delete pdf file
+          fileRef.delete().then(() => {
+          }).catch((error) => {
+            console.log(error);
+          })
+          //make definitions and terms
+        })
     })
   }
   render() {
