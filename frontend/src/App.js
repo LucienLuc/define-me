@@ -9,8 +9,9 @@ import 'antd/dist/antd.css';
 //import 'firebase/database';
 
 import UploadFile from './components/UploadFile'
-import app_header from './components/header'
+import app_header from './components/app_header'
 import Flashcard from './components/Flashcard'
+import NextCard from './components/NextCard'
 
 import {app} from './base'
 
@@ -39,7 +40,7 @@ class App extends Component{
 
     //this.app = firebase.initializeApp(DB_CONFIG);
     //this.database = this.app.database().ref().child('data');
-    //this.updateCard = this.updateCard.bind(this);
+    this.updateCard = this.updateCard.bind(this);
     this.state = {
       cards: [{id: 1, term: "Hello", def: "World"},
       {id: 2, term:"Goodbye", def:"World"}],
@@ -76,13 +77,13 @@ class App extends Component{
     return(card);
   }
 
-  /*updateCard(){
+  updateCard(){
     const currentCards = this.state.cards;
     this.setState({
-      cards: currentCards,
+      //cards: currentCards,
       currentCard: this.getRandomCard(currentCards)
     })
-  }*/
+  }
 
   
   render(){
@@ -104,9 +105,12 @@ class App extends Component{
         </a>
       </header> */}
       <Button onClick={handleClick}>Test firebase</Button>
-      <app_header/>
+      <app_header/>     
       <Flashcard term={this.state.currentCard.term} 
       def={this.state.currentCard.def}/>
+
+      <NextCard drawCard={this.updateCard}/>
+      
       <UploadFile/>
       
     </div>
