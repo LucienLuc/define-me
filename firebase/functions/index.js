@@ -15,8 +15,9 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 });
 
 exports.getTerms = functions.https.onRequest((request, response) => {
-  cors(request, response, () => {
+  cors(request, response, (request) => {
     async function start() {
+      console.log(request);
       const client = new vision.ImageAnnotatorClient();
       // Bucket where the file resides
       const bucketName = 'define-me-308905.appspot.com';

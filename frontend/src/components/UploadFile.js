@@ -6,13 +6,17 @@ import {app} from '../base'
 import {Upload, Button, message} from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 
+const BASE_URL = "https://us-central1-define-me-308905.cloudfunctions.net"
+
 class UploadFile extends React.Component{
   handleUpload = (e) => {
     const file = e.target.files[0];
     const storageRef = app.storage().ref()
     const fileRef = storageRef.child(file.name)
     fileRef.put(file).then(() => {
-      console.log("Uploaded a file")
+      axios
+        .post(BASE_URL + "/getTerms", file.name)
+        .then()
     })
   }
   render() {
