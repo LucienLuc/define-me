@@ -4,6 +4,7 @@ import './App.css';
 import 'antd/dist/antd.css';
 
 import UploadFile from './components/UploadFile'
+import app_header from './components/header'
 
 function App() {
   return (
@@ -23,7 +24,9 @@ function App() {
           Learn React
         </a>
       </header> */}
+      <app_header/>
       <UploadFile/>
+      
     </div>
   );
 }
