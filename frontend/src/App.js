@@ -18,7 +18,7 @@ function App() {
 
 
   const handleClick = () => {
-    axios.get('http://localhost:5001/define-me-308905/us-central1/getTerms').then(response => {
+    axios.post('http://localhost:5001/define-me-308905/us-central1/getTerms', 'poo poo ga ga').then(response => {
       console.log(response)
     })
   }
