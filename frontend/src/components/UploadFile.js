@@ -15,7 +15,7 @@ class UploadFile extends React.Component{
     const fileRef = storageRef.child(file.name)
     fileRef.put(file).then(() => {
       axios
-        .post(BASE_URL + "/getTerms", file.name)
+        .post(BASE_URL + "/getTerms", {file: file.name})
         .then()
     })
   }
