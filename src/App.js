@@ -1,11 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios'
 
+import {Button} from 'antd'
 import 'antd/dist/antd.css';
 
 import UploadFile from './components/UploadFile'
 
 function App() {
+
+  const handleClick = () => {
+    axios.get('https://us-central1-define-me-308905.cloudfunctions.net/helloWorld').then(response => {
+      console.log(response)
+    })
+  }
+
   return (
     <div className="App">
       {/* <header className="App-header">
@@ -23,6 +32,7 @@ function App() {
           Learn React
         </a>
       </header> */}
+      <Button onClick={handleClick}>Test firebase</Button>
       <UploadFile/>
     </div>
   );
