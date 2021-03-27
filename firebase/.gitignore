@@ -64,3 +64,6 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# service account API key
+define-me-308905-4c1ad412d5b6.json

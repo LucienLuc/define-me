@@ -8,10 +8,13 @@ import 'antd/dist/antd.css';
 import UploadFile from './components/UploadFile'
 import app_header from './components/header'
 
+const BASE_URL = "http://localhost:4000/functions"
+
 function App() {
 
+
   const handleClick = () => {
-    axios.get('https://us-central1-define-me-308905.cloudfunctions.net/helloWorld').then(response => {
+    axios.get('http://localhost:5001/define-me-308905/us-central1/getTerms').then(response => {
       console.log(response)
     })
   }
