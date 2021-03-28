@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './NextCard.css'
 import {Button} from 'antd';
 class NextCard extends Component{
     constructor(props){
@@ -10,7 +11,7 @@ class NextCard extends Component{
     }
     render(props){
         return(
-            <Button type="primary" onClick={this.drawCard}>Next Card</Button>
+            <Button className="btn" type="primary" onClick={this.drawCard}>Next Card</Button>
         )
     }
 }
