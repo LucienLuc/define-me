@@ -9,7 +9,7 @@ import 'antd/dist/antd.css';
 //import 'firebase/database';
 
 import UploadFile from './components/UploadFile'
-import app_header from './components/app_header'
+import Header from './components/header'
 import Flashcard from './components/Flashcard'
 import NextCard from './components/NextCard'
 
@@ -105,7 +105,7 @@ class App extends Component{
         </a>
       </header> */}
       <Button onClick={handleClick}>Test firebase</Button>
-      <app_header/>     
+      <Header/> 
       <Flashcard term={this.state.currentCard.term} 
       def={this.state.currentCard.def}/>
 
