@@ -20,20 +20,6 @@ import {app} from './base'
 // For firebase emulator testing
 const BASE_URL = "http://localhost:5001/define-me-308905/us-central1"
 
-const handleClick = () => {
-  axios.post('http://localhost:5001/define-me-308905/us-central1/ocr', {file: 'testfile.pdf'}).then(response => {
-    console.log(response);
-  }).then(() => {
-    const storageRef = app.storage().ref()
-    const fileRef = storageRef.child("/results/output-1-to-1.json")
-    fileRef.getDownloadURL().then(url => {
-      axios.get(url).then(response => {
-        console.log(response.data.responses[0].fullTextAnnotation.text)
-      }).catch(e => console.log(e))
-    })
-  });
-}
-
 class App extends Component{
   constructor(props){
     super(props);
@@ -105,14 +91,12 @@ class App extends Component{
         </a>
       </header> */}
       <header className="App-header">
-        <Button onClick={handleClick}>Test firebase</Button>
         <Header/> 
+        <UploadFile/>
         <Flashcard term={this.state.currentCard.term} 
         def={this.state.currentCard.def}/>
 
         <NextCard drawCard={this.updateCard}/>
-        
-        <UploadFile/>
       </header> 
     </div>
   );

@@ -84,29 +84,21 @@ class UploadFile extends React.Component{
         }));
         return false;
       },
-      
-      progress: {
-        strokeColor: {
-          '0%': '#108ee9',
-          '100%': '#87d068',
-        },
-        strokeWidth: 3,
-        format: percent => `${parseFloat(percent.toFixed(2))}%`,
-      },
-
       fileList,
     };
 
     return (
             <div>
             {this.state.uploading && <div class="progress"></div>}
-              <div class="file-input"> 
-                <Dragger {...props}>
-                  <p className="ant-upload-drag-icon">
-                    <InboxOutlined />
-                  </p>
-                  <p className="ant-upload-text">Click or drag file to this area to upload</p>
-                </Dragger>
+              <div className="file-input"> 
+                <div className="upload-box">
+                  <Dragger {...props}>
+                    <p className="ant-upload-drag-icon">
+                      <InboxOutlined />
+                    </p>
+                    <p className="ant-upload-text">Click or drag file to this area to upload</p>
+                  </Dragger>
+                </div>
                 <Button
                   type="primary"
                   onClick={this.handleUpload}
