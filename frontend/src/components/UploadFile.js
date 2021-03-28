@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import './UploadFile.css'
 import {app} from '../base'
+import { Progress } from 'antd';
 
 import {Upload, Button, message} from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
@@ -13,9 +14,13 @@ import { Redirect } from 'react-router';
 const BASE_URL = "http://localhost:5001/define-me-308905/us-central1"
 
 class UploadFile extends React.Component{
+  
   constructor(props){
     super(props);
-    this.state = {uploading: false};
+    this.state = {
+      uploading: false,
+      progress: 0
+    };
     this.handleUpload = this.handleUpload.bind(this)
 }
   handleUpload = (e) => {
@@ -28,17 +33,25 @@ class UploadFile extends React.Component{
     fileRef.put(file)
     .then((res) => {
       this.setState({
-        uploading: false
+        uploading: true,
+        progress: 33
       })
       console.log("uploaded file to firebase");
       axios
         .post(BASE_URL + "/ocr", {file: file.name})
         .then(response => {
+          this.setState({
+            uploading: true,
+            progress:66
+          })
           console.log("ocr begin");
           //delete pdf file
           fileRef
             .delete()
             .then(() => {
+              this.setState({
+                progress: 100
+              })
               console.log("deleted file");
             })
             .catch((error) => {
@@ -51,7 +64,8 @@ class UploadFile extends React.Component{
   render() {
     return (
             <div>
-            {this.state.uploading && <div class="progress"></div>}
+              <Progress type="dashboard" percent={this.state.progress} />
+
               <div class="file-input"> 
                 <Upload name="file"
                 accept=".pdf"
