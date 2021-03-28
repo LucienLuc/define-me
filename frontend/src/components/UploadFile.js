@@ -34,7 +34,7 @@ class UploadFile extends React.Component{
         })
     })
     /*this.setState({
-      uploading:true
+      uploading:false
     })*/
   }
   render() {
@@ -56,8 +56,8 @@ class UploadFile extends React.Component{
       };
       return (
               <div>
-              <div class="file-input">
               {this.state.uploading && <div class="progress"></div>}
+              <div class="file-input">
               <div>
               <label for="avatar">Select a pdf:</label>
               </div>
