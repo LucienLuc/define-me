@@ -29,6 +29,22 @@ class UploadFile extends React.Component{
       axios.post(BASE_URL + "/ocr", {file: file.name}).then(response => {
         //delete pdf file
         fileRef.delete().then(() => {
+          // Get output of ocr
+          storageRef.child('/results').listAll().then(res => {
+            res.items.forEach((itemRef) => {
+              if (itemRef.name.startsWith(file.name)){
+                // console.log(itemRef.name)
+                // Get raw text data from ocr
+                itemRef.getDownloadURL().then(url => {
+                  axios.get(url).then(response => {
+                    // pass into machine learning model
+                    console.log(response.data.responses[0].fullTextAnnotation.text)
+                  }).catch(err => console.log(err))
+                })
+              }
+            });
+          }).catch(err => console.log(err))
+
         }).catch((error) => {
           console.log(error);
         })
