@@ -72,6 +72,13 @@ class UploadFile extends React.Component{
                         //get definitions and terms
                         axios.get(BASE_URL + '/getTerms', {text: rawText}).then(response => {
                           console.log(response)
+                          const outputRef = storageRef.child("cards.json")
+                          outputRef.getDownloadURL().then(url => {
+                            axios.get(url).then(response => {
+                              const cards = response.data.cards
+                              this.props.callback(response.data.cards)
+                            })
+                          })
                           this.setState({
                             progress: 100,
                             uploading: false,

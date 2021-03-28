@@ -7,12 +7,12 @@ const vision = require('@google-cloud/vision');
 //
 
 
-exports.helloWorld = functions.https.onRequest((request, response) => {
-  cors(request, response, () => {
-    functions.logger.info("Hello logs!", {structuredData: true});
-    response.send("Hello from Firebase!");
-  });
-});
+// exports.helloWorld = functions.https.onRequest((request, response) => {
+//   cors(request, response, () => {
+//     functions.logger.info("Hello logs!", {structuredData: true});
+//     response.send("Hello from Firebase!");
+//   });
+// });
 
 exports.ocr = functions.https.onRequest((request, response) => {
   cors(request, response, () => {
@@ -62,5 +62,12 @@ exports.ocr = functions.https.onRequest((request, response) => {
       functions.logger.info("Making ocr request!", {structuredData: true});
       response.send("Made request to ocr!").end();
     });
+  });
+});
+
+exports.getTerms= functions.https.onRequest((request, response) => {
+  cors(request, response, () => {
+    console.log(request.body.text)
+    response.send("Finished getTerms");
   });
 });

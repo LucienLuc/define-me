@@ -28,15 +28,16 @@ class App extends Component{
     //this.database = this.app.database().ref().child('data');
     this.updateCard = this.updateCard.bind(this);
     this.state = {
-      cards: [{id: 1, term: "Hello", def: "World"},
-      {id: 2, term:"Goodbye", def:"World"}],
+      cards: [{id: 1, term: "Your terms will appear here!", def: "Your definitions will appear here!"}],
       // cards: [],
       currentCard: {}
     }
   }
   
   changeCards = (newCards) => {
-    this.setState({card : newCards.data})
+    console.log("Changing state")
+    console.log(newCards)
+    this.setState({card : newCards})
   }
 
   componentWillMount(){
