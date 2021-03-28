@@ -2,11 +2,11 @@
 import React,{Component} from 'react'
 import './App.css';
 import axios from 'axios'
-//import {DB_CONFIG} from '.firebase/functions/db_config';
+//import {DB_CONFIG} from './db_config';
 import {Button} from 'antd'
 import 'antd/dist/antd.css';
-
-//import 'firebase/database';
+import firebase from 'firebase/app'
+import 'firebase/database';
 
 import UploadFile from './components/UploadFile'
 import Header from './components/header'
@@ -25,40 +25,39 @@ class App extends Component{
     super(props);
 
     //this.app = firebase.initializeApp(DB_CONFIG);
-    //this.database = this.app.database().ref().child('data');
+    this.database = this.app.database().ref().child('cards');
     this.updateCard = this.updateCard.bind(this);
     this.state = {
-      cards: [{id: 1, term: "Hello", def: "World"},
-      {id: 2, term:"Goodbye", def:"World"}],
+      cards: [],
       currentCard: {} 
     }
   }
   
 
   componentWillMount(){
-    //console.log(this.app.database().ref().child('data'))
+    console.log(this.app.database().ref().child('cards'))
     const currentCards = this.state.cards;
-    /*this.database.on('child_added', snap => {
+    this.database.on('child_added', snap => {
       currentCards.push({
         id: snap.key,
         term: snap.val().term,
         def: snap.val().def,
-      })*/
+      })
 
       this.setState({
         cards: currentCards,
         currentCard: this.getRandomCard(currentCards)
       })
 
-    //})
+    })
   }
 
   getRandomCard(currentCards){
-    var card = currentCards[Math.floor(Math.random() * currentCards.length)];
-    /*var card = currentCards[randomIndex];
+    var randomIndex = Math.floor(Math.random() * currentCards.length);
+    var card = currentCards[randomIndex];
     if(card === this.state.currentCard){
       this.getRandomCard(currentCards)
-    }*/
+    }
 
     return(card);
   }
@@ -66,7 +65,7 @@ class App extends Component{
   updateCard(){
     const currentCards = this.state.cards;
     this.setState({
-      //cards: currentCards,
+      cards: currentCards,
       currentCard: this.getRandomCard(currentCards)
     })
   }

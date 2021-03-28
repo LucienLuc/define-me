@@ -1,11 +1,15 @@
 import React,{Component} from 'react'
 import './Flashcard.css'
-import {Card} from 'antd'
 const Flashcard = (props) =>(
-    
-    <Card title={props.term} extra={<a href="#">More</a>} style={{ width: 400 }} className="card">
-      <p>{props.def}</p>
-    </Card>
-   
+    <div className="card-container">
+        <div className="card">
+            <div className="front">
+                <div className="term">{props.term}</div>
+            </div>
+            <div className="front back">
+                <div className="def">{props.def}</div>
+            </div>
+        </div>
+    </div>
 )
 export default Flashcard
