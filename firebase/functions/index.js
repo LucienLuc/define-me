@@ -65,19 +65,3 @@ exports.ocr = functions.https.onRequest((request, response) => {
     response.send("Made request to vision!");
   });
 });
-
-exports.getData= functions.https.onRequest((request, response) => {
-  cors(request, response, () => {
-
-    const admin = require('firebase-admin');
-    admin.storage().bucket().file("yourDirForFile/yourFile.json")
-    .download(function (err, contents) {
-        if (!err) {
-            var jsObject = JSON.parse(contents.toString('utf8'))
-        }
-    }); 
-
-    functions.logger.info("Getting data from ocr", {structuredData: true});
-    response.send("Getting data");
-  });
-});

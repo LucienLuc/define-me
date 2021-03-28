@@ -7,7 +7,10 @@ import {Upload, Button, message} from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import { Redirect } from 'react-router';
 
-const BASE_URL = "https://us-central1-define-me-308905.cloudfunctions.net"
+// const BASE_URL = "https://us-central1-define-me-308905.cloudfunctions.net"
+
+// For firebase emulator testing
+const BASE_URL = "http://localhost:5001/define-me-308905/us-central1"
 
 class UploadFile extends React.Component{
   constructor(props){
@@ -32,7 +35,7 @@ class UploadFile extends React.Component{
           })
           //make definitions and terms
         })
-    })
+    }).catch(e => console.log(e))
     /*this.setState({
       uploading:true
     })*/
