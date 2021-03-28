@@ -26,7 +26,7 @@ exports.ocr = functions.https.onRequest((request, response) => {
       // The folder to store the results
       const outputPrefix = 'results'
       const gcsSourceUri = `gs://${bucketName}/${fileName}`;
-      const gcsDestinationUri = `gs://${bucketName}/${outputPrefix}/`;
+      const gcsDestinationUri = `gs://${bucketName}/${outputPrefix}/${fileName}`;
 
       const inputConfig = {
         // Supported mime_types are: 'application/pdf' and 'image/tiff'
@@ -57,11 +57,12 @@ exports.ocr = functions.https.onRequest((request, response) => {
       // console.log(filesResponse.responses[0]);
       const destinationUri = filesResponse.responses[0].outputConfig.gcsDestination.uri;
       console.log('Json saved to: ' + destinationUri);
+      return;
     }
 
-    start(request);
-
-    functions.logger.info("Making vision request!", {structuredData: true});
-    response.send("Made request to vision!");
+    start(request).then(() => {
+      functions.logger.info("Making ocr request!", {structuredData: true});
+      response.send("Made request to ocr!").end();
+    });
   });
 });

@@ -24,21 +24,21 @@ class UploadFile extends React.Component{
     const file = e.target.files[0];
     const storageRef = app.storage().ref()
     const fileRef = storageRef.child(file.name)
-    fileRef.put(file).then(() => {
-      axios
-        .post(BASE_URL + "/ocr", {file: file.name})
-        .then(response => {
-          //delete pdf file
-          fileRef.delete().then(() => {
-          }).catch((error) => {
-            console.log(error);
-          })
-          //make definitions and terms
+    fileRef.put(file).then((res) => {
+      console.log(res)
+      axios.post(BASE_URL + "/ocr", {file: file.name}).then(response => {
+        //delete pdf file
+        fileRef.delete().then(() => {
+        }).catch((error) => {
+          console.log(error);
         })
+        //make definitions and terms
+        console.log(response)
+      })
     }).catch(e => console.log(e))
-    /*this.setState({
-      uploading:false
-    })*/
+    // /*this.setState({
+    //   uploading:false
+    // })*/
   }
   render() {
       let props = {
