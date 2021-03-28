@@ -15,10 +15,10 @@ import NextCard from './components/NextCard'
 
 import {app} from './base'
 
-const BASE_URL = "https://us-central1-define-me-308905.cloudfunctions.net"
+// const BASE_URL = "https://us-central1-define-me-308905.cloudfunctions.net"
 
 // For firebase emulator testing
-// const BASE_URL = "http://localhost:5001/define-me-308905/us-central1"
+const BASE_URL = "http://localhost:5001/define-me-308905/us-central1"
 
 const handleClick = () => {
   axios.post('http://localhost:5001/define-me-308905/us-central1/ocr', {file: 'testfile.pdf'}).then(response => {
@@ -29,9 +29,9 @@ const handleClick = () => {
     fileRef.getDownloadURL().then(url => {
       axios.get(url).then(response => {
         console.log(response.data.responses[0].fullTextAnnotation.text)
-      })
+      }).catch(e => console.log(e))
     })
-  }); 
+  });
 }
 
 class App extends Component{

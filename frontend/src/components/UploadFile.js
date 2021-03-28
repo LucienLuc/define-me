@@ -7,7 +7,10 @@ import {Upload, Button, message} from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import { Redirect } from 'react-router';
 
-const BASE_URL = "https://us-central1-define-me-308905.cloudfunctions.net"
+// const BASE_URL = "https://us-central1-define-me-308905.cloudfunctions.net"
+
+// For firebase emulator testing
+const BASE_URL = "http://localhost:5001/define-me-308905/us-central1"
 
 class UploadFile extends React.Component{
   constructor(props){
@@ -21,21 +24,21 @@ class UploadFile extends React.Component{
     const file = e.target.files[0];
     const storageRef = app.storage().ref()
     const fileRef = storageRef.child(file.name)
-    fileRef.put(file).then(() => {
-      axios
-        .post(BASE_URL + "/ocr", {file: file.name})
-        .then(response => {
-          //delete pdf file
-          fileRef.delete().then(() => {
-          }).catch((error) => {
-            console.log(error);
-          })
-          //make definitions and terms
+    fileRef.put(file).then((res) => {
+      console.log(res)
+      axios.post(BASE_URL + "/ocr", {file: file.name}).then(response => {
+        //delete pdf file
+        fileRef.delete().then(() => {
+        }).catch((error) => {
+          console.log(error);
         })
-    })
-    /*this.setState({
-      uploading:true
-    })*/
+        //make definitions and terms
+        console.log(response)
+      })
+    }).catch(e => console.log(e))
+    // /*this.setState({
+    //   uploading:false
+    // })*/
   }
   render() {
       let props = {
@@ -56,8 +59,8 @@ class UploadFile extends React.Component{
       };
       return (
               <div>
-              <div class="file-input">
               {this.state.uploading && <div class="progress"></div>}
+              <div class="file-input">
               <div>
               <label for="avatar">Select a pdf:</label>
               </div>

@@ -1,8 +1,11 @@
 .file-input {
+    position: absolute;
     margin-top: 300px;
+    margin-left: 750px;
 }
 
 .progress {
+    position: absolute;
     border: 16px solid #f3f3f3; /* Light grey */
     border-top: 16px solid #3498db; /* Blue */
     border-radius: 50%;
