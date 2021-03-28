@@ -1,10 +1,10 @@
 # study-spotlight
 
 ## Contributors
-Jiu Choe
-Jeff Lee
-Lucien Luc
-Maximillian Shen
+- [Jiu Choe](https://github.com/jiuchoe4)
+- [Jeff Lee](https://github.com/jefflee702)
+- [Lucien Luc](https://github.com/LucienLuc)
+- [Maximillian Shen](https://github.com/mshen119)
 
 ## Inspiration
 Reading through large sections of a textbook can often be tedious and time-consuming, and extracting concise and encompassing contents of a section for note taking is even worse. We wanted to create an application that made note taking a more pleasant and efficient process. Textbooks can contain information that you don’t necessarily need and it can be a huge waste of time when trying to study. 
