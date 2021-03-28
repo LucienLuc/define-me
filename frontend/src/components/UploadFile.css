@@ -1,5 +1,10 @@
 .file-input {
   width: 200%;
+  right: 133px;
+  position: relative;
+  background-color: #3b414d;
+  margin-bottom: 80px;
+  justify-content: center;
 }
 
 .progress {

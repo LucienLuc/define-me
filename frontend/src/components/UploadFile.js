@@ -109,7 +109,7 @@ class UploadFile extends React.Component{
 
     return (
             <div>
-              {this.state.uploading && <Progress percent={this.state.progress} strokeColor={{from: '#108ee9', to: '#87d068'}} status="active"/>}
+            {this.state.uploading && <Progress percent={this.state.progress} showInfo={false} strokeColor={{from: '#108ee9', to: '#87d068'}} status="active"/>}
 
               <div class="file-input"> 
                 <Dragger {...props}>
