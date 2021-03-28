@@ -1,22 +1,21 @@
 const functions = require("firebase-functions");
 const cors = require("cors")({origin: true});
-const vision = require('@google-cloud/vision');
+const vision = require("@google-cloud/vision");
 
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
 
 
-exports.helloWorld = functions.https.onRequest((request, response) => {
-  cors(request, response, () => {
-    functions.logger.info("Hello logs!", {structuredData: true});
-    response.send("Hello from Firebase!");
-  });
-});
+// exports.helloWorld = functions.https.onRequest((request, response) => {
+//   cors(request, response, () => {
+//     functions.logger.info("Hello logs!", {structuredData: true});
+//     response.send("Hello from Firebase!");
+//   });
+// });
 
 exports.ocr = functions.https.onRequest((request, response) => {
   cors(request, response, () => {
-
     async function start(req) {
       const client = new vision.ImageAnnotatorClient();
       // Bucket where the file resides
@@ -24,7 +23,7 @@ exports.ocr = functions.https.onRequest((request, response) => {
       // Path to PDF file within bucket
       const fileName = req.body.file;
       // The folder to store the results
-      const outputPrefix = 'results'
+      const outputPrefix = "results"
       const gcsSourceUri = `gs://${bucketName}/${fileName}`;
       const gcsDestinationUri = `gs://${bucketName}/${outputPrefix}/${fileName}`;
 
@@ -52,9 +51,7 @@ exports.ocr = functions.https.onRequest((request, response) => {
       };
 
       const [operation] = await client.asyncBatchAnnotateFiles(request);
-      // console.log(operation);
       const [filesResponse] = await operation.promise();
-      // console.log(filesResponse.responses[0]);
       const destinationUri = filesResponse.responses[0].outputConfig.gcsDestination.uri;
       console.log('Json saved to: ' + destinationUri);
       return;
@@ -64,5 +61,12 @@ exports.ocr = functions.https.onRequest((request, response) => {
       functions.logger.info("Making ocr request!", {structuredData: true});
       response.send("Made request to ocr!").end();
     });
+  });
+});
+
+exports.getTerms= functions.https.onRequest((request, response) => {
+  cors(request, response, () => {
+    console.log(request.body.text)
+    response.send("Finished getTerms");
   });
 });

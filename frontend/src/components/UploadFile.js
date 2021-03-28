@@ -9,10 +9,10 @@ import { InboxOutlined  } from '@ant-design/icons';
 
 const { Dragger } = Upload;
 
-// const BASE_URL = "https://us-central1-define-me-308905.cloudfunctions.net"
+const BASE_URL = "https://us-central1-define-me-308905.cloudfunctions.net"
 
 // For firebase emulator testing
-const BASE_URL = "http://localhost:5001/define-me-308905/us-central1"
+// const BASE_URL = "http://localhost:5001/define-me-308905/us-central1"
 
 class UploadFile extends React.Component{
   
@@ -48,12 +48,6 @@ class UploadFile extends React.Component{
         text: "Converting"
       })
       console.log("uploaded file to firebase");
-      /*this.setState({
-        fileList: [],
-        uploading: false,
-        text: "Finished"
-      });*/
-
       axios
         .post(BASE_URL + "/ocr", {file: file.name})
         .then(response => {
@@ -67,22 +61,43 @@ class UploadFile extends React.Component{
           fileRef
             .delete()
             .then(() => {
-              this.setState({
-                progress: 100,
-                text: "Done"
+              storageRef.child("/results").listAll().then(res => {
+                res.items.forEach((itemRef) => {
+                  if(itemRef.name.startsWith(file.name)) {
+                    itemRef.getDownloadURL().then(url => {
+                      axios.get(url).then(response => {
+                        const rawText = response.data.responses[0].fullTextAnnotation.text
+
+                        //get definitions and terms
+                        axios.get(BASE_URL + '/getTerms', {text: rawText}).then(response => {
+                          const outputRef = storageRef.child("cards.json")
+                          outputRef.getDownloadURL().then(url => {
+                            axios.get(url).then(response => {
+                              const cards = response.data.cards
+                              this.props.callback(response.data.cards)
+                            })
+                          })
+                          this.setState({
+                            progress: 100,
+                            uploading: false,
+                            text: "Done"
+                          })
+                        })
+                      })
+                    })
+                  }
+                });
               })
-              console.log("deleted file");
+              this.setState({
+                uploading: false
+              })
             })
             .catch((error) => {
               console.log(error); 
             })
-        //make definitions and terms
       })
     }).catch(e => {
       console.log(e)
-      this.setState({
-        uploading: false
-      })
     })
   }
   render() {
