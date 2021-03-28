@@ -1,0 +1,34 @@
+{
+    "cards":[
+        {
+            "id": 1,
+            "term": "assembly language",
+            "def": "A symbolic language that can be translated into binary machine language."
+        },
+        {
+            "id": 2,
+            "term": "pseudoinstruction",
+            "def": "A common variation of assembly language instructions often treated as if it were an instruction in its own right."
+        },
+        {
+            "id": 3,
+            "term": "loader",
+            "def": "A systems program that places an object program in main memory so that it is ready to execute."
+        },
+        {
+            "id": 4,
+            "term": "dynamically linked libraries(DLLs)",
+            "def": "Library routines that are linked to a program during execution."
+        },
+        {
+            "id": 5,
+            "term": "Java bytecode",
+            "def": "Instruction from an instruction set designed to interpret Java programs."
+        },
+        {
+            "id": 6,
+            "term": "Java Virtual Machine",
+            "def": "The program that interprets Java bytecodes"
+        }
+    ]
+}
