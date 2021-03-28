@@ -26,7 +26,7 @@ exports.ocr = functions.https.onRequest((request, response) => {
       // The folder to store the results
       const outputPrefix = "results"
       const gcsSourceUri = `gs://${bucketName}/${fileName}`;
-      const gcsDestinationUri = `gs://${bucketName}/${outputPrefix}`;
+      const gcsDestinationUri = `gs://${bucketName}/${outputPrefix}/${fileName}`;
 
       const inputConfig = {
         // Supported mime_types are: 'application/pdf' and 'image/tiff'

@@ -51,6 +51,8 @@ class UploadFile extends React.Component{
                   axios.get(url).then(response => {
                     // pass into machine learning model
                     console.log(response.data.responses[0].fullTextAnnotation.text)
+                    
+
                   }).catch(err => console.log(err))
                 })
               }
