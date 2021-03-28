@@ -1,0 +1,27 @@
+Polysaccharides are giant polymers of monosaccharides connected by glycosidic linkages (Figure 3.16).
+ Starch is a polysaccharide of glucose with α-glycosidic
+linkages.
+ Glycogen is a highly branched polysaccharide of glucose.
+ Cellulose is also a polysaccharide of glucose, but its
+individual monosaccharides are connected by β-glycosidic linkages.
+Starch actually comprises a large family of giant molecules
+of broadly similar structure. While all starches are large polymers of glucose with α linkages (Figure 3.16a), the different
+starches can be distinguished by the amount of branching
+that occurs at carbons 1 and 6 (Figure 3.16b). Some plant
+starches are unbranched, as in plant amylose; others are moderately branched, as in plant amylopectin. Starch readily
+binds water, and when that water is removed, unbranched
+starch tends to form hydrogen bonds between the polysaccharide chains, which then aggregate. This is what causes
+bread to become hard and stale. Adding water and gentle
+heat separates the chains and the bread becomes softer.
+The polysaccharide glycogen stores glucose in animal livers and muscles. Starch and glycogen serve as energy storage compounds for plants and animals, respectively. These
+polysaccharides are readily hydrolyzed to glucose monomers, which in turn can be further degraded to liberate their
+stored energy and convert it to forms that can be used for cellular activities. If it is glucose that is actually needed for fuel,
+why must it be stored as a polymer? The reason is that 1,000
+glucose molecules would exert 1,000 times the osmotic pressure (causing water to enter the cells; see Chapter 5) of a single glycogen molecule. If it were not for polysaccharides,
+many organisms would expend a lot of time and energy expelling excess water.
+Cellulose is the predominant component of plant cell
+walls, and is by far the most abundant organic (carbon-containing) compound on Earth. Starch can be easily degraded
+by the actions of chemicals or enzymes. Cellulose, however,
+is chemically more stable because of its β-glycosidic linkages
+(Figure 3.16a). Thus starch is a good storage medium that can
+be easily broken down to supply glucose for energy-producing reactions, while cellulose is an excellent structural material that can withstand harsh environmental conditions without changing.
