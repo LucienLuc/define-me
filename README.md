@@ -6,6 +6,12 @@
 - [Lucien Luc](https://github.com/LucienLuc)
 - [Maximillian Shen](https://github.com/mshen119)
 
+## Set up
+1. .env file with `GOOGLE_APPLICATION_CREDENTIALS` in `/frontend/`
+2. in `/frontend/` run `npm i`
+3. in `/frontend/` run `npm run start`
+4. frontend server runs on localhost:3000
+
 ## Inspiration
 Reading through large sections of a textbook can often be tedious and time-consuming, and extracting concise and encompassing contents of a section for note taking is even worse. We wanted to create an application that made note taking a more pleasant and efficient process. Textbooks can contain information that you don’t necessarily need and it can be a huge waste of time when trying to study. 
 ## What it does
