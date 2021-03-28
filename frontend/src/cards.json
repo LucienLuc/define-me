@@ -2,33 +2,63 @@
     "cards":[
         {
             "id": 1,
+            "term": "compiler",
+            "def": "A compiler transforms the C program into an assembly language program."
+        },
+        {
+            "id": 2,
             "term": "assembly language",
             "def": "A symbolic language that can be translated into binary machine language."
         },
         {
-            "id": 2,
+            "id": 3,
             "term": "pseudoinstruction",
             "def": "A common variation of assembly language instructions often treated as if it were an instruction in its own right."
         },
         {
-            "id": 3,
+            "id": 4,
+            "term": "object file",
+            "def": "a combination of machine language instructions, data, and information needed to place instructions properly in memory."
+        },
+        {
+            "id": 5,
+            "term": "symbol table",
+            "def": "A table that matches names of labels to the addresses of the memory words that instructions occupy."
+        },
+        {
+            "id": 6,
+            "term": "linker",
+            "def": "Also called link editor. A systems program that combines independently assembled machine language programs and resolves all undefined labels into an executable file."
+        },
+        {
+            "id": 7,
+            "term": "executable file",
+            "def": "A functional program in the format of an object file that contains no unresolved references."
+        },
+        {
+            "id": 8,
             "term": "loader",
             "def": "A systems program that places an object program in main memory so that it is ready to execute."
         },
         {
-            "id": 4,
+            "id": 9,
             "term": "dynamically linked libraries(DLLs)",
             "def": "Library routines that are linked to a program during execution."
         },
         {
-            "id": 5,
+            "id": 10,
             "term": "Java bytecode",
             "def": "Instruction from an instruction set designed to interpret Java programs."
         },
         {
-            "id": 6,
+            "id": 11,
             "term": "Java Virtual Machine",
             "def": "The program that interprets Java bytecodes"
+        },
+        {
+            "id": 12,
+            "term": "Just In Time compiler(JIT)",
+            "def": "The name commonly given to a compiler that operates at runtime, translating the interpreted code segments into the native code of the computer."
         }
     ]
 }
