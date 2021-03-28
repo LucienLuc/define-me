@@ -26,9 +26,10 @@ class UploadFile extends React.Component{
     const storageRef = app.storage().ref()
     const fileRef = storageRef.child(file.name)
     fileRef.put(file).then((res) => {
-      console.log(res)
+      console.log(res) // FILE UPLOADED
       axios.post(BASE_URL + "/ocr", {file: file.name}).then(response => {
-        //delete pdf file
+        // OCR COMPLETE
+        //delete pdf file 
         fileRef.delete().then(() => {
           // Get output of ocr
           storageRef.child('/results').listAll().then(res => {
@@ -59,7 +60,6 @@ class UploadFile extends React.Component{
             {this.state.uploading && <div class="progress"></div>}
               <div class="file-input"> 
                 <Upload name="file"
-                accept=".pdf"
                 onChange={this.handleUpload}>
                   <Button icon={<UploadOutlined />}>Select a pdf:</Button>
                 </Upload>
