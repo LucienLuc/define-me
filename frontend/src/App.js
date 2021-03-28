@@ -104,15 +104,16 @@ class App extends Component{
           Learn React
         </a>
       </header> */}
-      <Button onClick={handleClick}>Test firebase</Button>
-      <Header/> 
-      <Flashcard term={this.state.currentCard.term} 
-      def={this.state.currentCard.def}/>
+      <header className="App-header">
+        <Button onClick={handleClick}>Test firebase</Button>
+        <Header/> 
+        <Flashcard term={this.state.currentCard.term} 
+        def={this.state.currentCard.def}/>
 
-      <NextCard drawCard={this.updateCard}/>
-      
-      <UploadFile/>
-      
+        <NextCard drawCard={this.updateCard}/>
+        
+        <UploadFile/>
+      </header> 
     </div>
   );
   }

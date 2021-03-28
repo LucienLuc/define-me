@@ -1,7 +1,5 @@
 .file-input {
-    position: absolute;
-    margin-top: 300px;
-    margin-left: 750px;
+  width: 200%;
 }
 
 .progress {
