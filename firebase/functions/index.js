@@ -1,6 +1,6 @@
 const functions = require("firebase-functions");
 const cors = require("cors")({origin: true});
-const vision = require('@google-cloud/vision');
+const vision = require("@google-cloud/vision");
 
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
@@ -16,7 +16,6 @@ const vision = require('@google-cloud/vision');
 
 exports.ocr = functions.https.onRequest((request, response) => {
   cors(request, response, () => {
-
     async function start(req) {
       const client = new vision.ImageAnnotatorClient();
       // Bucket where the file resides

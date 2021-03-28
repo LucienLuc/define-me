@@ -9,10 +9,10 @@ import { InboxOutlined  } from '@ant-design/icons';
 
 const { Dragger } = Upload;
 
-// const BASE_URL = "https://us-central1-define-me-308905.cloudfunctions.net"
+const BASE_URL = "https://us-central1-define-me-308905.cloudfunctions.net"
 
 // For firebase emulator testing
-const BASE_URL = "http://localhost:5001/define-me-308905/us-central1"
+// const BASE_URL = "http://localhost:5001/define-me-308905/us-central1"
 
 class UploadFile extends React.Component{
   
