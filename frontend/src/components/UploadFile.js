@@ -84,6 +84,16 @@ class UploadFile extends React.Component{
         }));
         return false;
       },
+      
+      progress: {
+        strokeColor: {
+          '0%': '#108ee9',
+          '100%': '#87d068',
+        },
+        strokeWidth: 3,
+        format: percent => `${parseFloat(percent.toFixed(2))}%`,
+      },
+
       fileList,
     };
 
