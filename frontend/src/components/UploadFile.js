@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import './UploadFile.css'
 import {app} from '../base'
+import { Progress } from 'antd';
 
 import {Upload, Button, message} from 'antd';
 import { InboxOutlined  } from '@ant-design/icons';
@@ -14,12 +15,16 @@ const { Dragger } = Upload;
 const BASE_URL = "http://localhost:5001/define-me-308905/us-central1"
 
 class UploadFile extends React.Component{
+  
   constructor(props){
     super(props);
     this.state = {
+      uploading: false,
+      progress: 0,
+      text: "Uploading",
       fileList: [],
-      uploading: false
     };
+    this.handleUpload = this.handleUpload.bind(this)
 }
   handleUpload = (e) => {
     const { fileList } = this.state;
@@ -35,40 +40,60 @@ class UploadFile extends React.Component{
     const file = this.state.fileList[0];
     const storageRef = app.storage().ref()
     const fileRef = storageRef.child(file.name)
-    fileRef.put(file).then((res) => {
-      console.log(res) // FILE UPLOADED
-      axios.post(BASE_URL + "/ocr", {file: file.name}).then(response => {
-        // OCR COMPLETE
-        //delete pdf file 
-        fileRef.delete().then(() => {
-          // Get output of ocr
-          storageRef.child('/results').listAll().then(res => {
-            res.items.forEach((itemRef) => {
-              if (itemRef.name.startsWith(file.name)){
-                // console.log(itemRef.name)
-                // Get raw text data from ocr
-                itemRef.getDownloadURL().then(url => {
-                  axios.get(url).then(response => {
-                    // pass into machine learning model
-                    console.log(response.data.responses[0].fullTextAnnotation.text)
-                    
+    fileRef.put(file)
+    .then((res) => {
+      this.setState({
+        uploading: true,
+        progress: 33,
+        text: "Converting"
+      })
+      console.log("uploaded file to firebase");
+      axios
+        .post(BASE_URL + "/ocr", {file: file.name})
+        .then(response => {
+          this.setState({
+            uploading: true,
+            progress: 66,
+            text: "Scanning"
+          })
+          console.log("ocr begin");
+          //delete pdf file
+          fileRef
+            .delete()
+            .then(() => {
+              storageRef.child("/results").listAll().then(res => {
+                res.items.forEach((itemRef) => {
+                  if(itemRef.name.startsWith(file.name)) {
+                    console.log(itemRef.name)
+                    itemRef.getDownloadURL().then(url => {
+                      axios.get(url).then(response => {
+                        const rawText = response.data.responses[0].fullTextAnnotation.text
 
-                  }).catch(err => console.log(err))
-                })
-              }
-            });
-          }).catch(err => console.log(err))
-
-        }).catch((error) => {
-          console.log(error);
-        })
-        //make definitions and terms
+                        //get definitions and terms
+                        axios.get(BASE_URL + '/getTerms', {text: rawText}).then(response => {
+                          console.log(response)
+                          this.setState({
+                            progress: 100,
+                            uploading: false,
+                            text: "Done"
+                          })
+                        })
+                      })
+                    })
+                  }
+                });
+              })
+              this.setState({
+                uploading: false
+              })
+              console.log("deleted file");
+            })
+            .catch((error) => {
+              console.log(error); 
+            })
       })
     }).catch(e => {
       console.log(e)
-      this.setState({
-        uploading: false
-      })
     })
   }
   render() {
@@ -95,7 +120,8 @@ class UploadFile extends React.Component{
 
     return (
             <div>
-            {this.state.uploading && <div class="progress"></div>}
+            {this.state.uploading && <Progress percent={this.state.progress} showInfo={false} strokeColor={{from: '#108ee9', to: '#87d068'}} status="active"/>}
+
               <div class="file-input"> 
                 <Dragger {...props}>
                   <p className="ant-upload-drag-icon">
