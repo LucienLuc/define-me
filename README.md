@@ -27,5 +27,8 @@ For some of us, this was our first time doing web development so it was a learni
 ## What's next for Study Spotlight
 Though our neural network was serviceable, we plan to retrain our network through Tensorflow to increase accuracy and customizability. We’d also like to support multiple file uploads as well as allowing users to upload only a portion of a textbook PDF as opposed to having to manually resave a section of a desired PDF. Finally, a google extension that highlighted terms and definitions in a browser is something we would like to accomplish in the future as well. 
 
+## Disclaimer
+We were unable to train an accurate enough model for this task so we ended up having to showcase a proof of concept for this code. Future work would use a Tensorflow model which is hopefully better than Google AutoML.
+
 ## Devpost
 Devpost submission link [here](https://devpost.com/software/study-spotlight)
